@@ -1,0 +1,59 @@
+* { 
+    box-sizing: border-box; 
+    padding: 0;
+    margin: 0;
+}
+
+body, html { 
+    height: 100%; 
+}
+
+body { 
+    background-color: #000000; 
+    color: #ffffff; 
+}
+
+h1 { 
+    font-family: "Playfair Display"; 
+    font-size: 30px; padding: 10px 0px; margin: 0px; 
+}
+.field-box { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.field { 
+    --cell-size: 6vmin;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(24, var(--cell-size));
+    grid-template-rows: repeat(15,var(--cell-size)); 
+    border: 2px solid #d0d0d0; 
+}
+
+.field .tile { 
+    background-size: 100%; 
+    background-image: url(../images/tile-.png); 
+}
+.field .tileW { 
+    --x: 0;
+    --y: 0;
+    position: absolute;
+    width: 6vmin;
+    height: 6vmin;
+    top: calc(var(--y) * (var(--cell-size)));
+    left: calc(var(--x) * (var(--cell-size)));
+    background-image: url(../images/tile-W.png);  
+    background-size: 100%; 
+}
+.field .tileE { background-image: url(../images/tile-E.png); z-index: 10; }
+.field .tileP { background-image: url(../images/tile-P.png); z-index: 10; }
+.field .tileHP { background-image: url(../images/tile-HP.png); z-index: 9; }
+.field .tileSW { background-image: url(../images/tile-SW.png); z-index: 9; }
+.field .tile .health { background-color: #ff0000; z-index: 11; position: absolute; left: 0px; top: 0px; height: 3px; }
+.field .tileP .health { background-color: #00ff00; z-index: 11; position: absolute; left: 0px; top: 0px; height: 3px; }
+.inventory-box { border: 2px solid #d0d0d0; float: left; }
+.inventory { position: relative; width: 800px; height: 32px; }
+.cl { clear: both; display: block; }
