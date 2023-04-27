@@ -1,4 +1,4 @@
-export class Enemy {
+class Enemy {
     constructor (fieldElement){
         this.tileEnemy = document.createElement('div');
         this.tileEnemy.classList.add('tileE');

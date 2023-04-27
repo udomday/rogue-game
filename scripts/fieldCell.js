@@ -1,5 +1,5 @@
 //Ячейки игрового поля
-export class fieldCell {
+class fieldCell {
     constructor(fieldElement, x, y){
         this.cell = document.createElement("div");
         this.cell.classList.add("tile");

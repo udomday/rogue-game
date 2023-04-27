@@ -1,4 +1,4 @@
-export class Wall {
+class Wall {
     constructor(fieldElement){
         this.tileWall = document.createElement('div');
         this.tileWall.classList.add('tileW');

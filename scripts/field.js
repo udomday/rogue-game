@@ -1,11 +1,8 @@
-import { fieldCell } from "./fieldCell.js";
-
 //Создание игрового поля
 
-export class Field {
+class Field {
     constructor(fieldElement, FIELD_WIDTH, FIELD_HEIGHT){
         this.cells = [];
-        console.log(FIELD_HEIGHT, FIELD_WIDTH)
         for (let i = 0; i < FIELD_HEIGHT; i++) {
             this.cells.push([]);
             for(let j = 0; j < FIELD_WIDTH; j++){

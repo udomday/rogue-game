@@ -1,10 +1,13 @@
 const healthBar = document.querySelector('.health')
-export class Hero {
+class Hero {
     constructor (fieldElement){
         this.tileHero = document.createElement('div');
         this.tileHero.classList.add('tileP');
         this.health = 20;
         this.damage = 3;
+        let perHealth = (this.health * 100) / 20;
+        healthBar.style.width = `${perHealth}%`
+        damageBar.innerHTML = `Урон: ${this.damage}`
         fieldElement.append(this.tileHero);
     }
     
@@ -29,3 +32,4 @@ export class Hero {
         healthBar.style.width = `${perHealth}%`
     }
 }
+

@@ -1,3 +1,8 @@
+@font-face {
+	font-family: 'PlayfairDisplay'; 
+	src: url(../fonts/PlayfairDisplay.ttf); 
+}
+
 * { 
     box-sizing: border-box; 
     padding: 0;
@@ -14,7 +19,7 @@ body {
 }
 
 h1 { 
-    font-family: "Playfair Display"; 
+    font-family: "PlayfairDisplay"; 
     font-size: 30px; 
     padding: 10px 0px; 
     margin-left: 20px; 
@@ -103,20 +108,22 @@ h1 {
 }
 
 .heroMenu{
-    font-family: "Playfair Display"; 
+    font-family: "PlayfairDisplay"; 
     font-size: 30px; 
+    align-items: center;
     margin-left: 20px;
 }
 
 .healthBar{
     position: relative;
-    width: 30vmin;
+    width: 25vmin;
     height: 5vmin;
     border: 1px solid #ffffff;
 }
 
 .healthBar span{
     position: absolute;
+    bottom: 0.5px;
     text-align: center;
     width: 100%;
     z-index: 2;
@@ -130,8 +137,44 @@ h1 {
     z-index: 1;
 }
 
-.field .tile .health { background-color: #ff0000; z-index: 11; position: absolute; left: 0px; top: 0px; height: 3px; }
-.field .tileP .health { background-color: #00ff00; z-index: 11; position: absolute; left: 0px; top: 0px; height: 3px; }
+.restartGame{
+    position: absolute;
+    user-select: none;
+    transition: all 1s;
+}
+
+.restartGame:hover{
+    cursor: pointer;
+    color: #c68c8c;
+}
+
+.musicControllOff{
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    user-select: none;
+    transition: all 1s;
+}
+
+.musicControllOff:hover{
+    cursor: pointer;
+    color: #c68c8c;
+}
+
+.musicControllOn{
+    position: absolute;
+    bottom: 10px;
+    user-select: none;
+    transition: all 1s;
+}
+
+.musicControllOn:hover{
+    cursor: pointer;
+    color: #c68c8c;
+}
+
+/* .field .tile .health { background-color: #ff0000; z-index: 11; position: absolute; left: 0px; top: 0px; height: 3px; }
+.field .tileP .health { background-color: #00ff00; z-index: 11; position: absolute; left: 0px; top: 0px; height: 3px; } */
 .inventory-box { border: 2px solid #d0d0d0; float: left; }
 .inventory { position: relative; width: 800px; height: 32px; }
 .cl { clear: both; display: block; }

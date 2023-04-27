@@ -1,5 +1,5 @@
 const damageBar = document.querySelector('.damageBar')
-export class Sword {
+class Sword {
     constructor (fieldElement){
         this.tileSword = document.createElement('div');
         this.tileSword.classList.add('tileSW');

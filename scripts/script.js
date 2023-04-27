@@ -1,16 +1,35 @@
-import { Enemy } from "./enemy.js";
-import { Field } from "./field.js";
-import { Heal } from "./heal.js";
-import { Hero } from "./hero.js";
-import { Sword } from "./sword.js";
-import { Wall } from "./wall.js";
-
 const gameBoard = document.querySelector('.field');
+const audio = document.querySelector('.audio');
+const audioOff = document.querySelector('.musicControllOff')
+const audioOn = document.querySelector('.musicControllOn')
 const FIELD_WIDTH = 25;
 const FIELD_HEIGHT = 15;
+document.querySelector('.restartGame').addEventListener('click', () => restartGame());
 gameBoard.style.setProperty('FIELD_WIDTH', FIELD_WIDTH);
 gameBoard.style.setProperty('FIELD_HEIGHT', FIELD_HEIGHT);
 const field = new Field(gameBoard, FIELD_WIDTH, FIELD_HEIGHT);
+
+//Управление музыкой
+audioOff.addEventListener('click', () =>{
+    audio.pause()
+    audioOff.style.display = 'none';
+    audioOn.style.display = 'block';
+});
+
+audioOn.addEventListener('click', () =>{
+    audio.play()
+    audioOff.style.display = 'block';
+    audioOn.style.display = 'none';
+});
+////
+
+//Перезагрузка игры
+function restartGame(){
+    field.cells.forEach(cells => cells.forEach(cell => {if(!cell.isEmpty())cell.unlinkTileAndDelete()}));
+    startGame();
+}   
+////
+
 
 //Старт игры
 function startGame(){
@@ -25,14 +44,13 @@ function startGame(){
 
     spawnTile();
 
-    console.log(field)
     setUpInputOnce()
 }
 ////
 
 startGame()
 
-//Движение врагов
+//Движение и атака врагов
 
 function getRandomFrom(array){
     const index = Math.floor(Math.random() * array.length);
@@ -56,6 +74,10 @@ function moveEnemy(){
     const masEnemy = [];
     const masDerection = ['up', 'down', 'left', 'right']
     field.cells.map(cells => cells.map(cell =>{if(cell.isType() == 'Enemy') masEnemy.push(cell)}));
+    if(masEnemy.length == 0){
+        alert('Вы выиграли!')
+        restartGame()
+    }
     for(let i = 0; i < masEnemy.length; i++){
         let enemyTile = field.cells[masEnemy[i].y][masEnemy[i].x]
         let flag = true
@@ -83,9 +105,9 @@ function moveEnemy(){
             const heroTile = heroIsNear(masEnemy, i);
             heroTile.linkedTile.subHealth(enemyTile.linkedTile.damage)
             if(!heroTile.linkedTile.isAlive()){
-                alert('Game Over')
+                alert('Вы проиграли!')
+                restartGame()
             }
-            console.log(heroTile)
         }
     }
 }
@@ -121,7 +143,6 @@ async function handleInput(event) {
             setUpInputOnce();
             return;
     }
-
     setUpInputOnce();
 }
 
@@ -248,3 +269,4 @@ function spawnTile(){
     for(let i = 0; i < 10; i++) field.getRandomEmptyCell().linkTile(new Enemy(gameBoard))
 }
 ////
+

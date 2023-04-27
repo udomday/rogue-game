@@ -1,5 +1,5 @@
-const healthBar = document.querySelector('.health')
-export class Heal {
+healthBar = document.querySelector('.health')
+class Heal {
     constructor (fieldElement){
         this.tileHeal= document.createElement('div');
         this.tileHeal.classList.add('tileHP');
