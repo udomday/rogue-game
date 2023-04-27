@@ -14,7 +14,19 @@ export class fieldCell {
     }
 
     unlinkTile(){
+        this.linkedTile = null;
+    }
+
+    unlinkTileAndDelete(){
         this.linkedTile.removeFromDOM()
         this.linkedTile = null;
+    }
+
+    isEmpty(){
+        return !this.linkedTile;
+    }
+
+    isType(){
+        if(this.linkedTile != null) return this.linkedTile.constructor.name
     }
 }
