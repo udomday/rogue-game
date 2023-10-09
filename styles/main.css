@@ -1,180 +1,195 @@
 @font-face {
-	font-family: 'PlayfairDisplay'; 
-	src: url(../fonts/PlayfairDisplay.ttf); 
+  font-family: "PlayfairDisplay";
+  src: url(../fonts/PlayfairDisplay.ttf);
 }
 
-* { 
-    box-sizing: border-box; 
-    padding: 0;
-    margin: 0;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-body, html { 
-    height: 100%; 
+body,
+html {
+  height: 100%;
 }
 
-body { 
-    background-color: #000000; 
-    color: #ffffff; 
+body {
+  background-color: #000000;
+  color: #ffffff;
 }
 
-h1 { 
-    font-family: "PlayfairDisplay"; 
-    font-size: 30px; 
-    padding: 10px 0px; 
-    margin-left: 20px; 
+h1 {
+  font-family: "PlayfairDisplay";
+  font-size: 30px;
+  padding: 10px 0px;
+  margin-left: 20px;
 }
-.field-box { 
-    display: flex;
-    margin-left: 20px;
-    /* flex-direction: column;
+.field-box {
+  display: flex;
+  margin-left: 20px;
+  /* flex-direction: column;
     justify-content: left;
     align-items: center;  */
 }
 
-.field { 
-    --FIELD_HEIGHT:15;
-    --FIELD_WIDTH:25;
-    --cell-size: 6vmin;
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(var(--FIELD_WIDTH), var(--cell-size));
-    grid-template-rows: repeat(var(--FIELD_HEIGHT),var(--cell-size)); 
-    border: 2px solid #d0d0d0; 
+.field {
+  --FIELD_HEIGHT: 15;
+  --FIELD_WIDTH: 25;
+  --cell-size: 6vmin;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--FIELD_WIDTH), var(--cell-size));
+  grid-template-rows: repeat(var(--FIELD_HEIGHT), var(--cell-size));
+  border: 2px solid #d0d0d0;
 }
 
-.field .tile { 
-    background-size: 100%; 
-    background-image: url(../images/tile-.png); 
+.field .tile {
+  background-size: 100%;
+  background-image: url(../images/tile-.png);
 }
-.field .tileW { 
-    --x: 0;
-    --y: 0;
-    position: absolute;
-    width: 6vmin;
-    height: 6vmin;
-    top: calc(var(--y) * (var(--cell-size)));
-    left: calc(var(--x) * (var(--cell-size)));
-    background-image: url(../images/tile-W.png);  
-    background-size: 100%; 
+.field .tileW {
+  --x: 0;
+  --y: 0;
+  position: absolute;
+  width: 6vmin;
+  height: 6vmin;
+  top: calc(var(--y) * (var(--cell-size)));
+  left: calc(var(--x) * (var(--cell-size)));
+  background-image: url(../images/tile-W.png);
+  background-size: 100%;
 }
-.field .tileE { 
-    --x: 0;
-    --y: 0;
-    position: absolute;
-    width: 6vmin;
-    height: 6vmin;
-    top: calc(var(--y) * (var(--cell-size)));
-    left: calc(var(--x) * (var(--cell-size)));
-    background-image: url(../images/tile-E.png); 
-    background-size: 100%; 
-    z-index: 10; 
+.field .tileE {
+  --x: 0;
+  --y: 0;
+  position: absolute;
+  width: 6vmin;
+  height: 6vmin;
+  top: calc(var(--y) * (var(--cell-size)));
+  left: calc(var(--x) * (var(--cell-size)));
+  background-image: url(../images/tile-E.png);
+  background-size: 100%;
+  z-index: 10;
 }
-.field .tileP { 
-    --x: 0;
-    --y: 0;
-    position: absolute;
-    width: 6vmin;
-    height: 6vmin;
-    top: calc(var(--y) * (var(--cell-size)));
-    left: calc(var(--x) * (var(--cell-size)));
-    background-image: url(../images/tile-P.png); 
-    background-size: 100%; 
-    z-index: 10; 
+.field .tileP {
+  --x: 0;
+  --y: 0;
+  position: absolute;
+  width: 6vmin;
+  height: 6vmin;
+  top: calc(var(--y) * (var(--cell-size)));
+  left: calc(var(--x) * (var(--cell-size)));
+  background-image: url(../images/tile-P.png);
+  background-size: 100%;
+  z-index: 10;
 }
-.field .tileHP { 
-    --x: 0;
-    --y: 0;
-    position: absolute;
-    width: 6vmin;
-    height: 6vmin;
-    top: calc(var(--y) * (var(--cell-size)));
-    left: calc(var(--x) * (var(--cell-size)));
-    background-image: url(../images/tile-HP.png); 
-    background-size: 100%; 
-    z-index: 9; 
+.field .tileHP {
+  --x: 0;
+  --y: 0;
+  position: absolute;
+  width: 6vmin;
+  height: 6vmin;
+  top: calc(var(--y) * (var(--cell-size)));
+  left: calc(var(--x) * (var(--cell-size)));
+  background-image: url(../images/tile-HP.png);
+  background-size: 100%;
+  z-index: 9;
 }
-.field .tileSW { 
-    --x: 0;
-    --y: 0;
-    position: absolute;
-    width: 6vmin;
-    height: 6vmin;
-    top: calc(var(--y) * (var(--cell-size)));
-    left: calc(var(--x) * (var(--cell-size)));
-    background-image: url(../images/tile-SW.png); 
-    background-size: 100%; 
-    z-index: 9; 
-}
-
-.heroMenu{
-    font-family: "PlayfairDisplay"; 
-    font-size: 30px; 
-    align-items: center;
-    margin-left: 20px;
+.field .tileSW {
+  --x: 0;
+  --y: 0;
+  position: absolute;
+  width: 6vmin;
+  height: 6vmin;
+  top: calc(var(--y) * (var(--cell-size)));
+  left: calc(var(--x) * (var(--cell-size)));
+  background-image: url(../images/tile-SW.png);
+  background-size: 100%;
+  z-index: 9;
 }
 
-.healthBar{
-    position: relative;
-    width: 25vmin;
-    height: 5vmin;
-    border: 1px solid #ffffff;
+.heroMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 30px;
+  margin-left: 20px;
 }
 
-.healthBar span{
-    position: absolute;
-    bottom: 0.5px;
-    text-align: center;
-    width: 100%;
-    z-index: 2;
+.healthBar {
+  position: relative;
+  width: 25vmin;
+  height: 5vmin;
+  border: 1px solid #ffffff;
 }
 
-.healthBar .health{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #ff0000;
-    z-index: 1;
+.healthBar span {
+  position: absolute;
+  bottom: 0.5px;
+  text-align: center;
+  width: 100%;
+  z-index: 2;
 }
 
-.restartGame{
-    position: absolute;
-    user-select: none;
-    transition: all 1s;
+.healthBar .health {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ff0000;
+  z-index: 1;
 }
 
-.restartGame:hover{
-    cursor: pointer;
-    color: #c68c8c;
+.controlHero {
+  user-select: none;
 }
 
-.musicControllOff{
-    display: none;
-    position: absolute;
-    bottom: 10px;
-    user-select: none;
-    transition: all 1s;
+.restartGame {
+  user-select: none;
+  transition: all 1s;
 }
 
-.musicControllOff:hover{
-    cursor: pointer;
-    color: #c68c8c;
+.restartGame:hover {
+  cursor: pointer;
+  color: #c68c8c;
 }
 
-.musicControllOn{
-    position: absolute;
-    bottom: 10px;
-    user-select: none;
-    transition: all 1s;
+.musicControllOff {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  user-select: none;
+  transition: all 1s;
 }
 
-.musicControllOn:hover{
-    cursor: pointer;
-    color: #c68c8c;
+.musicControllOff:hover {
+  cursor: pointer;
+  color: #c68c8c;
+}
+
+.musicControllOn {
+  position: absolute;
+  bottom: 10px;
+  user-select: none;
+  transition: all 1s;
+}
+
+.musicControllOn:hover {
+  cursor: pointer;
+  color: #c68c8c;
 }
 
 /* .field .tile .health { background-color: #ff0000; z-index: 11; position: absolute; left: 0px; top: 0px; height: 3px; }
 .field .tileP .health { background-color: #00ff00; z-index: 11; position: absolute; left: 0px; top: 0px; height: 3px; } */
-.inventory-box { border: 2px solid #d0d0d0; float: left; }
-.inventory { position: relative; width: 800px; height: 32px; }
-.cl { clear: both; display: block; }
+.inventory-box {
+  border: 2px solid #d0d0d0;
+  float: left;
+}
+.inventory {
+  position: relative;
+  width: 800px;
+  height: 32px;
+}
+.cl {
+  clear: both;
+  display: block;
+}
