@@ -15,6 +15,7 @@ html {
 }
 
 body {
+  --size-tile: 3.7vmin;
   background-color: #000000;
   color: #ffffff;
 }
@@ -34,9 +35,9 @@ h1 {
 }
 
 .field {
-  --FIELD_HEIGHT: 15;
-  --FIELD_WIDTH: 25;
-  --cell-size: 6vmin;
+  --FIELD_HEIGHT: 24;
+  --FIELD_WIDTH: 40;
+  --cell-size: var(--size-tile);
   position: relative;
   display: grid;
   grid-template-columns: repeat(var(--FIELD_WIDTH), var(--cell-size));
@@ -52,8 +53,8 @@ h1 {
   --x: 0;
   --y: 0;
   position: absolute;
-  width: 6vmin;
-  height: 6vmin;
+  width: var(--size-tile);
+  height: var(--size-tile);
   top: calc(var(--y) * (var(--cell-size)));
   left: calc(var(--x) * (var(--cell-size)));
   background-image: url(../images/tile-W.png);
@@ -63,8 +64,8 @@ h1 {
   --x: 0;
   --y: 0;
   position: absolute;
-  width: 6vmin;
-  height: 6vmin;
+  width: var(--size-tile);
+  height: var(--size-tile);
   top: calc(var(--y) * (var(--cell-size)));
   left: calc(var(--x) * (var(--cell-size)));
   background-image: url(../images/tile-E.png);
@@ -75,8 +76,8 @@ h1 {
   --x: 0;
   --y: 0;
   position: absolute;
-  width: 6vmin;
-  height: 6vmin;
+  width: var(--size-tile);
+  height: var(--size-tile);
   top: calc(var(--y) * (var(--cell-size)));
   left: calc(var(--x) * (var(--cell-size)));
   background-image: url(../images/tile-P.png);
@@ -87,8 +88,8 @@ h1 {
   --x: 0;
   --y: 0;
   position: absolute;
-  width: 6vmin;
-  height: 6vmin;
+  width: var(--size-tile);
+  height: var(--size-tile);
   top: calc(var(--y) * (var(--cell-size)));
   left: calc(var(--x) * (var(--cell-size)));
   background-image: url(../images/tile-HP.png);
@@ -99,8 +100,8 @@ h1 {
   --x: 0;
   --y: 0;
   position: absolute;
-  width: 6vmin;
-  height: 6vmin;
+  width: var(--size-tile);
+  height: var(--size-tile);
   top: calc(var(--y) * (var(--cell-size)));
   left: calc(var(--x) * (var(--cell-size)));
   background-image: url(../images/tile-SW.png);
